@@ -4,6 +4,7 @@
   <title>TwitterClone</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -38,11 +39,10 @@
 </marquee>
 <% end %>
 <br>
-<marquee behavior="alternate" scrollamount="8" width="350">
 
-<div class="container">
+<marquee behavior="alternate" direction="down" scrollamount="2" width=100%>
+
 <%= yield %>
-</div>
 
 </marquee>
 
