@@ -8,16 +8,43 @@
 </head>
 <body>
 
+<% if flash[:notice] %>
+<marquee direction="down" width=100% height="50" behavior="alternate" style="border:solid;background-color:green">
+  <marquee behavior="alternate"scrolldelay="60" scrollamount="10"><font color="yellow"><%= flash[:notice] %></color></marquee>
+</marquee>
+<% elsif flash[:alert] %>
+<marquee direction="down" width="150" height="180" behavior="alternate" style="border:solid">
+  <marquee behavior="alternate" scrolldelay="60" scrollamount="12">flash[:alert]</marquee>
+</marquee>
+<% end %>
+
+
 <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
+  <marquee>Logged in as <strong><%= current_user.email %></strong> current time is <%= Time.now %>.</marquee>
   <%= link_to 'Edit profile', edit_user_registration_path %> |
   <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <% else %>
-  <%= link_to "Sign up", new_user_registration_path %> |
-  <%= link_to "Login", new_user_session_path %>
+
+<marquee direction="down" width="150" height="180" behavior="alternate" style="border:solid">
+  <marquee behavior="alternate" width="100" scrolldelay="60" scrollamount="10"><h1>Twits</h1> </marquee>
+  and
+  <marquee behavior="alternate" scrolldelay="60" scrollamount="12"><h1>Giggles</h1> </marquee>
+</marquee>
+<br>
+<marquee direction="down" width=30% height=200 behavior="alternate" style="border:solid">
+  <marquee behavior="alternate" scrolldelay="60" scrollamount="20" width="50"><marquee scrollamount="10"><%= link_to "Sign up", new_user_registration_path %> </marquee></marquee>
+  <marquee>or</marquee>
+  <marquee behavior="alternate" scrolldelay="200" scrollamount="10"><%= link_to "Login", new_user_session_path %> </marquee>
+</marquee>
 <% end %>
 
+<marquee behavior="alternate" scrollamount="8" width="500">
+
+<div class="container">
 <%= yield %>
+</div>
+
+</marquee>
 
 </body>
 </html>
