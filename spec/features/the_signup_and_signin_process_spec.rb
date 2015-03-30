@@ -10,4 +10,13 @@ describe "the user login process" do
     click_button "Log in"
     expect(page). to have_content "Signed in successfully"
   end
+
+  it 'returns an error if user doesnt exist' do
+    visit root_path
+    click_on "Login"
+    fill_in "Email", with: 'eakfnkfajn@gmail.com'
+    fill_in "Password", with: '1234567890'
+    click_button "Log in"
+    expect(page).to have_content "Invalid email or password"
+  end
 end
