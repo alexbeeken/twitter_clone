@@ -16,6 +16,12 @@
         <% tweet.words.each do |word| %>
           <marquee direction="right" behavior="alternate" heigth="200" scrolldelay="60" scrollamount="8"><%= word %></marquee>
         <% end %>
+        <% if tweet.comments %>
+          <% tweet.comments.each do |comment| %>
+              <marquee direction="right"><%= comment.body %></marquee>
+          <% end %>
+        <% end %>
+        <%= link_to "Create Comment", new_comment_path(tweet) %>
     </marquee>
   </div>
   <% end %>
